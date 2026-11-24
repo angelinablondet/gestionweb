@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--/*
+  Gabarit commun à toutes les pages.
+  Le fragment "page" reçoit deux morceaux de HTML venant de la page appelante :
+    - blocTitre   : sa balise <title>
+    - blocContenu : sa balise <main>
+  Il les insère au bon endroit, entre l'en-tête et le pied de page communs.
+*/-->
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="page(blocTitre, blocContenu)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:replace="${blocTitre}">Gestion Fioul</title>
+    <!--/* Tailwind CSS par CDN (remplacé par un CSS compilé à la Fiche 07) */-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+
+<header class="bg-amber-600 text-white shadow">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a th:href="@{/}" class="text-xl font-bold tracking-tight">⛽ Gestion Fioul</a>
+        <ul class="flex items-center gap-4 text-sm">
+            <li><a th:href="@{/}" class="hover:underline">Accueil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main th:replace="${blocContenu}">
+    Contenu de la page
+</main>
+
+<footer class="mt-auto bg-slate-800 text-slate-300 text-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 text-center">
+        Gestion Fioul — projet BTS SIO SLAM
+    </div>
+</footer>
+
+</body>
+</html>

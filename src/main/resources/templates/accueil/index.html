@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--/* La page entière est remplacée par le gabarit "page" de layout.html,
+     auquel on passe notre <title> et notre <main>. */-->
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: page(~{::title}, ~{::main})}">
+<head>
+    <title>Accueil — Gestion Fioul</title>
+</head>
+<body>
+<main class="max-w-6xl mx-auto px-4 py-10">
+
+    <section class="text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-900" th:text="${titre}">Titre</h1>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+            Regroupez vos commandes de fioul domestique pour obtenir un meilleur prix :
+            plus le volume total est important, plus le prix au litre baisse.
+        </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-3">
+        <article class="bg-white rounded-xl shadow p-6">
+            <h2 class="text-lg font-semibold text-amber-700">1. Je participe</h2>
+            <p class="mt-2 text-slate-600">
+                En tant que client, je m'engage sur un volume dans une campagne ouverte.
+            </p>
+        </article>
+        <article class="bg-white rounded-xl shadow p-6">
+            <h2 class="text-lg font-semibold text-amber-700">2. Les fournisseurs proposent</h2>
+            <p class="mt-2 text-slate-600">
+                Chaque fournisseur dépose un barème de prix dégressif par paliers de volume.
+            </p>
+        </article>
+        <article class="bg-white rounded-xl shadow p-6">
+            <h2 class="text-lg font-semibold text-amber-700">3. La moins chère gagne</h2>
+            <p class="mt-2 text-slate-600">
+                À la clôture, la proposition la moins chère pour le volume total est retenue.
+            </p>
+        </article>
+    </section>
+
+</main>
+</body>
+</html>
